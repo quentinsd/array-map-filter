@@ -27,7 +27,7 @@ Exemple de tableau d'entrée :
 
 Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
 
-[
+[œ
   {
     radius: 1,
     circumference: "6.283",
@@ -52,9 +52,15 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
 */
 
 function getCirclesProperties(radiuses) {
+  const obj = radiuses.map(function(radius) {
+    return {
+      radius: radius,
+      circumference: (2 * Math.PI * radius).toFixed(3),
+      surface: (Math.PI * radius * radius).toFixed(3)
+    };
+  });
+  return obj;
 }
-
-
 
 // Ne pas modifier l'export
 module.exports = getCirclesProperties;

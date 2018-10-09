@@ -22,11 +22,20 @@ En sortie: [
  */
 
 function getStringsLength(strings) {
+  const array = strings.map(function(str) {
+    let total = 0;
+    for (let i = 0; i < str.length; i++) {
+      total += 1;
+    }
+    const message = `${str} contains ${total} characters`;
+    return message;
+  });
+  return array;
 }
 
 // Si besoin, tu peux toujours visualiser le résultat avec console.log,
 // mais alors, il faut alors lancer l'exercice avec node map/ex1
-// console.log(getStringsLength(['Cat', 'Lion', 'Tiger', 'Jaguar', 'Leopard']));
+//console.log(getStringsLength(["Cat", "Lion", "Tiger", "Jaguar", "Leopard"]));
 
 // Ne pas modifier l'export
 module.exports = getStringsLength;

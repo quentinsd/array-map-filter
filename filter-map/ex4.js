@@ -63,10 +63,17 @@ En prenant les deux exemples d'arguments d'entrée, on obtiendrait ceci en sorti
 
 */
 
-function getActivitiesMembers(activities, persons) {
-}
-
-
+const getActivitiesMembers = (activities, persons) => {
+  let activitiesMembers = activities.map(activitie => {
+    return {
+      activity: activitie,
+      persons: persons
+        .filter(person => person.activities.includes(activitie))
+        .map(person => person.name)
+    };
+  });
+  return activitiesMembers;
+};
 
 // Ne pas modifier l'export
 module.exports = getActivitiesMembers;
